@@ -1,0 +1,11 @@
+library(plyr)
+iris.uci <- read.csv(url("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"), header=FALSE)
+
+pairs(iris.uci,lower.panel=NULL,cex=2,pch=21,cex.labels = 2,
+      bg = c("black","grey","white")[iris.uci$species])
+
+par(xpd=NA)
+
+legend("bottomleft", inset=c(-.5,0), legend=levels(iris.uci$species),
+       pch=21,pt.bg=c("black","grey","white"),pt.cex=2,
+       y.intersp=.2,cex=1.5,bty="n")
